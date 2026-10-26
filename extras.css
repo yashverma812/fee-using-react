@@ -1,0 +1,53 @@
+/* Extra styles for the React-only features (toast, modal, wishlist, pagination, tabs) */
+.nav-links a.active { color: var(--accent); }
+.nav-links a.active::after { width: 100%; }
+.product-body h3 a { color: inherit; }
+.product-media { position: relative; }
+.product-cat.static { position: static; display: inline-block; margin-bottom: .5rem; }
+
+.wish-btn {
+  position: absolute; top: .75rem; right: .75rem; width: 38px; height: 38px;
+  border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--accent);
+  font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.15); transition: transform .2s;
+}
+.wish-btn:hover { transform: scale(1.12); }
+.wish-btn.active { background: var(--accent); color: #fff; }
+
+.card-actions { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+
+.menu-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.menu-toolbar .menu-meta { margin: 0; }
+.sort-select { display: flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--text-muted); }
+.sort-select select { padding: .5rem .75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--white); color: var(--text); font: inherit; }
+
+.pagination { display: flex; justify-content: center; align-items: center; gap: .5rem; margin-top: var(--sp-4, 2.5rem); flex-wrap: wrap; }
+.page-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--text); cursor: pointer; font: inherit; }
+.page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.tabs { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: var(--sp-3); }
+.tabs a.filter-btn { text-decoration: none; display: inline-block; }
+.tabs a.filter-btn.active { background: var(--primary); color: #fff; }
+.tab-panel { max-width: 640px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: var(--sp-3); text-align: center; }
+.tab-panel h3 { font-size: 2rem; color: var(--accent); margin-bottom: .5rem; }
+
+.quote-content { text-align: center; }
+
+/* Toasts */
+.toast-stack { position: fixed; bottom: 1.25rem; right: 1.25rem; display: flex; flex-direction: column; gap: .5rem; z-index: 3000; }
+.toast { background: var(--espresso-900); color: #fff; padding: .8rem 1.1rem; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: toastIn .3s ease; max-width: 320px; }
+.toast-info { background: var(--coffee-600); }
+.toast-error { background: var(--error); }
+@keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Modal */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(28,18,11,.6); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 2000; animation: fadeIn .2s ease; }
+.modal { background: var(--white); border-radius: 18px; max-width: 760px; width: 100%; position: relative; overflow: hidden; max-height: 92vh; overflow-y: auto; }
+.modal-close { position: absolute; top: .5rem; right: .75rem; z-index: 2; border: 0; background: rgba(255,255,255,.9); width: 36px; height: 36px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; }
+.quick-view { display: grid; grid-template-columns: 1fr 1fr; }
+.quick-view img { width: 100%; height: 100%; object-fit: cover; min-height: 280px; }
+.quick-body { padding: var(--sp-3); }
+.quick-price { font-size: 1.6rem; font-weight: 700; color: var(--accent); margin: .5rem 0 1rem; }
+@media (max-width: 640px) { .quick-view { grid-template-columns: 1fr; } .quick-view img { min-height: 200px; max-height: 240px; } }
+
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--error); }
